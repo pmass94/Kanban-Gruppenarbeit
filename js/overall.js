@@ -1,5 +1,8 @@
 function init() {
-includeHTML;
+
+    includeHTML();
+    window.setTimeout(loadSyleNavbar, 200);
+    
 }
 
 function includeHTML() {
@@ -29,3 +32,6 @@ function includeHTML() {
         }
     }
 }
+
+
+

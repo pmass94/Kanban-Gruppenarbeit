@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    
+}
+
+.main-Container{
+    margin-left: 150px;
+    width: 100% -150px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.board-field{
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 20%;
+    
+    
+}
+
+.board-title{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    
+}
+
+.board-title p{
+    margin-bottom: 8px;
+}
+
+.board-draganddrop{
+    background-color: #f2f1fa;
+    height: 90%;
+    width: 100%;
+}
+
+
+
