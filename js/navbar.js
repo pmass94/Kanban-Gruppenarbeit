@@ -3,32 +3,40 @@ function loadSyleNavbar() {
     let select = "select-side";
 
     if (window.location.href.search("board") >= 0) {
-
-        document.getElementById('board').classList.add(select);
-        document.getElementById('backlog').classList.remove(select);
-        document.getElementById('addtask').classList.remove(select);
-        document.getElementById('help').classList.remove(select);
-
+        changeBoard(select);
     } else if (window.location.href.search("backlog") >= 0) {
-
-        document.getElementById('board').classList.remove(select);
-        document.getElementById('backlog').classList.add(select);
-        document.getElementById('addtask').classList.remove(select);
-        document.getElementById('help').classList.remove(select);
-
-    } else if (window.location.href.search("addtastk") >= 0) {
-
-        document.getElementById('board').classList.remove(select);
-        document.getElementById('backlog').classList.remove(select);
-        document.getElementById('addtask').classList.add(select);
-        document.getElementById('help').classList.remove(select);
-
+        changeBacklog(select);
+    } else if (window.location.href.search("addtask") >= 0) {
+        changeAddtask(select);
     } else if (window.location.href.search("help") >= 0) {
-
-        document.getElementById('board').classList.remove(select);
-        document.getElementById('backlog').classList.remove(select);
-        document.getElementById('addtask').classList.remove(select);
-        document.getElementById('help').classList.add(select);
-
+        changeHelp(select);
     }
+}
+
+function changeBoard(select){
+    document.getElementById('board').classList.add(select);
+    document.getElementById('backlog').classList.remove(select);
+    document.getElementById('addtask').classList.remove(select);
+    document.getElementById('help').classList.remove(select);
+}
+
+function changeBacklog(select){
+    document.getElementById('board').classList.remove(select);
+    document.getElementById('backlog').classList.add(select);
+    document.getElementById('addtask').classList.remove(select);
+    document.getElementById('help').classList.remove(select);
+}
+
+function changeAddtask(select){
+    document.getElementById('board').classList.remove(select);
+    document.getElementById('backlog').classList.remove(select);
+    document.getElementById('addtask').classList.add(select);
+    document.getElementById('help').classList.remove(select);
+}
+
+function changeHelp(select){
+    document.getElementById('board').classList.remove(select);
+    document.getElementById('backlog').classList.remove(select);
+    document.getElementById('addtask').classList.remove(select);
+    document.getElementById('help').classList.add(select);
 }
