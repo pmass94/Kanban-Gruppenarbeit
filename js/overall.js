@@ -1,7 +1,7 @@
 function init() {
 
     includeHTML();
-    window.setTimeout(loadSyleNavbar, 200);
+    window.setTimeout(loadSyleNavbar, 50);
     
 }
 

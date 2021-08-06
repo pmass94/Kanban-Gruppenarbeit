@@ -1,42 +1,45 @@
 function loadSyleNavbar() {
 
-    let select = "select-side";
-
-    if (window.location.href.search("board") >= 0) {
-        changeBoard(select);
-    } else if (window.location.href.search("backlog") >= 0) {
-        changeBacklog(select);
-    } else if (window.location.href.search("addtask") >= 0) {
-        changeAddtask(select);
-    } else if (window.location.href.search("help") >= 0) {
-        changeHelp(select);
+    let select = 'select-side';
+    resetLinks(select);
+    if (urlIs('board')) {
+        boardClasses().add(select);
+    } else if (urlIs('backlog')) {
+        backlogClasses().add(select);
+    } else if (urlIs('addtask')) {
+        addtaskClasses().add(select);
+    } else if (urlIs('help')) {
+        helpClasses().add(select);
     }
 }
 
-function changeBoard(select){
-    document.getElementById('board').classList.add(select);
-    document.getElementById('backlog').classList.remove(select);
-    document.getElementById('addtask').classList.remove(select);
-    document.getElementById('help').classList.remove(select);
+function urlIs(link) {
+    return window.location.href.search(link) >= 0;
 }
 
-function changeBacklog(select){
-    document.getElementById('board').classList.remove(select);
-    document.getElementById('backlog').classList.add(select);
-    document.getElementById('addtask').classList.remove(select);
-    document.getElementById('help').classList.remove(select);
+function boardClasses() {
+    return document.getElementById('board').classList;
 }
 
-function changeAddtask(select){
-    document.getElementById('board').classList.remove(select);
-    document.getElementById('backlog').classList.remove(select);
-    document.getElementById('addtask').classList.add(select);
-    document.getElementById('help').classList.remove(select);
+function backlogClasses() {
+    return document.getElementById('backlog').classList;
 }
 
-function changeHelp(select){
-    document.getElementById('board').classList.remove(select);
-    document.getElementById('backlog').classList.remove(select);
-    document.getElementById('addtask').classList.remove(select);
-    document.getElementById('help').classList.add(select);
+function addtaskClasses() {
+    return document.getElementById('addtask').classList;
 }
+
+function helpClasses() {
+    return document.getElementById('help').classList;
+}
+
+
+function resetLinks(select) {
+    boardClasses().remove(select);
+    backlogClasses().remove(select);
+    addtaskClasses().remove(select);
+    helpClasses().remove(select);
+
+}
+
+
