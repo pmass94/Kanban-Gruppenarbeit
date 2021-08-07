@@ -10,6 +10,8 @@ function loadSyleNavbar() {
         addtaskClasses().add(select);
     } else if (urlIs('help')) {
         helpClasses().add(select);
+    } else if (urlIs('impressum')) {
+        impressumClasses().add(select);
     }
 }
 
@@ -33,10 +35,15 @@ function helpClasses() {
     return document.getElementById('help').classList;
 }
 
+function impressumClasses() {
+    return document.getElementById('impressum').classList;
+}
+
 function resetLinks(select) {
     boardClasses().remove(select);
     backlogClasses().remove(select);
     addtaskClasses().remove(select);
     helpClasses().remove(select);
+    impressumClasses().remove(select);
 
 }

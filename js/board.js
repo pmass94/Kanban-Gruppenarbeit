@@ -10,6 +10,10 @@ tasks = [{
     'id': 2,
     'title': 'Aufgabe 3',
     'category': 'inProgress'
+}, {
+    'id': 3,
+    'title': 'Aufgabe 4',
+    'category': 'inProgress'
 }];
 
 boardfields = ['ToDo', 'inProgress', 'Testing', 'Done'];
@@ -29,7 +33,6 @@ function updateHTML() {
 
         document.getElementById(id).innerHTML = '';
         search = tasks.filter(t => t['category'] == search);
-        console.log(search)
 
         for (let j = 0; j < search.length; j++) {
 
@@ -37,15 +40,11 @@ function updateHTML() {
             <div ondragstart="startDragging(${search[j]['id']})" draggable="true" class="board-task">${search[j]['title']}</div>
             `;
         }
-
     }
-
-
 }
 function startDragging(id){
     currentDraggedElement = id;
 }
-
 
 function MoveTo(category) {
     console.log('es geht', category)

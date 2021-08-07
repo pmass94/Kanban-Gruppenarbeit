@@ -24,6 +24,12 @@
     width: 100%;
     transition:ease-in-out 250ms
 }
+
+.navbar-linkbottom{
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
 .navbar-link a{
     color: #efefef;
     text-decoration: none;
@@ -51,8 +57,7 @@
 }
 
 .navbar-user{
-    position: absolute;
-    bottom: 32px;
+    margin-top: auto;
     background-color: white;
     border-radius: 100%;
     padding: 6px;

@@ -2,8 +2,8 @@ function init() {
 
     includeHTML();
     window.setTimeout(loadSyleNavbar, 50);
-    updateHTML();
-    
+    if (urlIs('board')) { updateHTML() };
+
 }
 
 function includeHTML() {
