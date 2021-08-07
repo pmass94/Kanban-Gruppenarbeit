@@ -18,6 +18,7 @@
 
     <script src="js/overall.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/board.js"></script>
 </head>
 
 <body onload="init()">
@@ -29,25 +30,25 @@
             <div class="board-title">
                 <p>TO DO</p>
             </div>
-            <div class="board-draganddrop"></div>
+            <div id="boardToDo" ondrop="MoveTo('ToDo')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
         </div>
         <div class="board-field">
             <div class="board-title">
                 <p>IN PROGRESS</p>
             </div>
-            <div class="board-draganddrop"></div>
+            <div id="boardinProgress" ondrop="MoveTo('inProgress')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
         </div>
         <div class="board-field">
             <div class="board-title">
                 <p>TESTING</p>
             </div>
-            <div class="board-draganddrop"></div>
+            <div id="boardTesting" ondrop="MoveTo('Testing')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
         </div>
         <div class="board-field">
             <div class="board-title">
                 <p>DONE</p>
             </div>
-            <div class="board-draganddrop"></div>
+            <div id="boardDone" ondrop="MoveTo('Done')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
         </div>
     </div>
 

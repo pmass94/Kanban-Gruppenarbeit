@@ -33,7 +33,6 @@ function helpClasses() {
     return document.getElementById('help').classList;
 }
 
-
 function resetLinks(select) {
     boardClasses().remove(select);
     backlogClasses().remove(select);
@@ -41,5 +40,3 @@ function resetLinks(select) {
     helpClasses().remove(select);
 
 }
-
-

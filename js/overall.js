@@ -2,6 +2,7 @@ function init() {
 
     includeHTML();
     window.setTimeout(loadSyleNavbar, 50);
+    updateHTML();
     
 }
 
