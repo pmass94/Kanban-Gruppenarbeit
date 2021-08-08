@@ -1,19 +1,39 @@
 tasks = [{
     'id': 0,
     'title': 'Aufgabe 1',
-    'category': 'ToDo'
+    'date': '',
+    'category': 'ToDo',
+    'taskcategory': 'Management',
+    'urgency': 'Normal',
+    'description': 'Text Aufgabe 1',
+    'user': ['Manuel']
 }, {
     'id': 1,
     'title': 'Aufgabe 2',
-    'category': 'ToDo'
+    'date': '',
+    'category': 'inProgress',
+    'taskcategory': 'Management',
+    'urgency': 'Normal',
+    'description': 'Text Aufgabe 2',
+    'user': ['Stefan']
 }, {
     'id': 2,
     'title': 'Aufgabe 3',
-    'category': 'inProgress'
+    'date': '',
+    'category': 'ToDo',
+    'taskcategory': 'Management',
+    'urgency': 'Normal',
+    'description': 'Text Aufgabe 3',
+    'user': ['Peter']
 }, {
     'id': 3,
     'title': 'Aufgabe 4',
-    'category': 'inProgress'
+    'date': '',
+    'category': 'Done',
+    'taskcategory': 'Management',
+    'urgency': 'Normal',
+    'description': 'Text Aufgabe 4',
+    'user': ['Manuel', 'Stefan', 'Peter']
 }];
 
 boardfields = ['ToDo', 'inProgress', 'Testing', 'Done'];
@@ -42,12 +62,12 @@ function updateHTML() {
         }
     }
 }
-function startDragging(id){
+function startDragging(id) {
     currentDraggedElement = id;
 }
 
 function MoveTo(category) {
-    console.log('es geht', category)
+
     tasks[currentDraggedElement]['category'] = category;
     updateHTML();
 }
