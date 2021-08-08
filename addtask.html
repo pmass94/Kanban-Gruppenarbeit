@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join-AddTask</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="img/joinlogo.png">
+    <link rel="stylesheet" href="css/addtask.css">
+    <link rel="stylesheet" href="css/navbar.css">
+
+    <script src="js/overall.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/addtask.js"></script>
+</head>
+
+<body onload="init()">
+
+    <div w3-include-html="templates/navbar.html"></div>
+    <div class="header">
+        <h1>Add Task</h1>
+        <h5 class="txt-blue">Learning Management System Project</h5>
+    </div>
+
+    <div class="container">
+        <div class="tasks">
+            <span class="lefttask">
+                <h3 class="txt-blue">TITLE</h3>
+                <input type="text" id="title" placeholder="Task Title">
+            </span>
+    
+            <span class="righttask">
+                <h3 class="txt-blue">DUE DATE</h3>
+                <input type="date" name="date" id="date">
+            </span>    
+        </div>
+
+        <div class="tasks">
+            <span class="lefttask">
+                <h3 class="txt-blue">CATEGORY</h3>
+                <label for="categories"></label>
+                    <select id="categories" name="category-list" form="category-form">
+                        <option value="management">Management</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="development ">Development</option>
+                        <option value="design">Design</option>
+                    </select>
+            </span>
+    
+            <span class="righttask">
+                <h3 class="txt-blue">URGENCY</h3>
+                <label for="urgency-type"></label>
+                    <select id="urgency-type" name="urgency" form="urgency-form">
+                        <option value="high">High</option>
+                        <option value="middle">Middle</option>
+                        <option value="low ">Low</option>
+                    </select>
+            </span>    
+        </div>
+        
+        <div class="tasks">
+            <span class="lefttask">
+                <h3 class="txt-blue">Description</h3>
+                <input type="text" id="description" placeholder="Task Description">
+            </span>
+            <span class="righttask">
+                <h3 class="txt-blue">ASSIGNED TO</h3>
+                <div id="assignment">
+                    <div id="user1" class="userimg">
+                        <img src="img/userimg/man.png" alt="">
+                    </div>
+                    <button id="addUser" onclick="addUser()">+</button>
+
+                </div>
+
+                <div class="buttons">
+                    <button id="btn-cancel" onclick="cancel()">CANCEL</button>
+                    <button id="btn-create" onclick="createTask()">CREATE TASK</button>
+                </div>
+                
+            </span>
+        </div>
+       
+        
+    </div>
+
+
+
+</body>
+
+</html>
