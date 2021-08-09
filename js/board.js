@@ -47,7 +47,6 @@ let currentDraggedElement;
 let task;
 let idtask;
 
-
 function updateHTML() {
 
     for (let i = 0; i < boardfields.length; i++) {
@@ -125,4 +124,3 @@ function closeChange() {
     document.getElementById('board-taskchange-br').classList.add('d-none')
     document.getElementById('board-taskchange').classList.add('d-none')
 }
-
