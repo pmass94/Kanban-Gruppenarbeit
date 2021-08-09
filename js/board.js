@@ -3,8 +3,8 @@ tasks = [{
     'title': 'Aufgabe 1',
     'date': '',
     'category': 'ToDo',
-    'taskcategory': 'Management',
-    'urgency': 'Normal',
+    'taskcategory': 0,
+    'urgency': 2,
     'description': 'Text Aufgabe 1',
     'user': ['Manuel']
 }, {
@@ -12,8 +12,8 @@ tasks = [{
     'title': 'Aufgabe 2',
     'date': '',
     'category': 'inProgress',
-    'taskcategory': 'Management',
-    'urgency': 'Normal',
+    'taskcategory': 1,
+    'urgency': 1,
     'description': 'Text Aufgabe 2',
     'user': ['Stefan']
 }, {
@@ -21,8 +21,8 @@ tasks = [{
     'title': 'Aufgabe 3',
     'date': '',
     'category': 'ToDo',
-    'taskcategory': 'Management',
-    'urgency': 'Normal',
+    'taskcategory': 2,
+    'urgency': 0,
     'description': 'Text Aufgabe 3',
     'user': ['Peter']
 }, {
@@ -30,8 +30,8 @@ tasks = [{
     'title': 'Aufgabe 4',
     'date': '',
     'category': 'Done',
-    'taskcategory': 'Management',
-    'urgency': 'Normal',
+    'taskcategory': 3,
+    'urgency': 2,
     'description': 'Text Aufgabe 4',
     'user': ['Manuel', 'Stefan', 'Peter']
 }];
@@ -43,6 +43,9 @@ let inProgress;
 let Testing;
 let Done;
 let currentDraggedElement;
+
+let task;
+let idtask;
 
 
 function updateHTML() {
@@ -56,8 +59,10 @@ function updateHTML() {
 
         for (let j = 0; j < search.length; j++) {
 
+            let idtask = search[j]['id'];
+
             document.getElementById(id).innerHTML += `
-            <div ondragstart="startDragging(${search[j]['id']})" draggable="true" class="board-task">${search[j]['title']}</div>
+            <div onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">${search[j]['title']}</div>
             `;
         }
     }
@@ -74,5 +79,50 @@ function MoveTo(category) {
 
 function allowDrop(ev) {
     ev.preventDefault();
+}
+
+function openChange(id) {
+    showTaskChange();
+    loadTask(id);
+}
+
+function loadTask(id) {
+    task = tasks[id];
+    idtask = id;
+    document.getElementById('board-title').value = task['title'];
+    document.getElementById('board-date').value = task['date'];
+    document.getElementById('board-categories').selectedIndex = task['taskcategory'];
+    document.getElementById('board-urgency').selectedIndex = task['urgency'];
+    document.getElementById('board-description').value = task['description'];
+}
+
+function changeTask() {
+    changeJson();
+    updateHTML();
+    closeChange();
+}
+
+function deleteTask(){
+    delete tasks[idtask];
+    changeTask();
+}
+
+function changeJson() {
+    task['title'] = document.getElementById('board-title').value;
+    task['date'] = document.getElementById('board-date').value;
+    task['taskcategory'] = document.getElementById('board-categories').selectedIndex;
+    task['urgency'] = document.getElementById('board-urgency').selectedIndex;
+    task['description'] = document.getElementById('board-description').value;
+
+}
+
+function showTaskChange() {
+    document.getElementById('board-taskchange-br').classList.remove('d-none')
+    document.getElementById('board-taskchange').classList.remove('d-none')
+}
+
+function closeChange() {
+    document.getElementById('board-taskchange-br').classList.add('d-none')
+    document.getElementById('board-taskchange').classList.add('d-none')
 }
 
