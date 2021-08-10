@@ -1,12 +1,58 @@
 setURL('http://gruppe-93.developerakademie.com/smallest_backend_ever');
 
 async function init() {
-    includeHTML();
-    window.setTimeout(loadSyleNavbar, 50);
-    if (urlIs('board')) { updateHTML() };
-   
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];
+    includeHTML();
+    window.setTimeout(loadStyleNavbar, 50);
+    if (urlIs('board')) { updateHTML() };
+
+   
+    
+
+}
+
+function addTasks() {
+    tasks.push([{
+        'id': 0,
+        'title': 'Aufgabe 1',
+        'date': '',
+        'category': 'ToDo',
+        'taskcategory': 0,
+        'urgency': 2,
+        'description': 'Text Aufgabe 1',
+        'user': ['Manuel']
+    }, {
+        'id': 1,
+        'title': 'Aufgabe 2',
+        'date': '',
+        'category': 'inProgress',
+        'taskcategory': 1,
+        'urgency': 1,
+        'description': 'Text Aufgabe 2',
+        'user': ['Stefan']
+    }, {
+        'id': 2,
+        'title': 'Aufgabe 3',
+        'date': '',
+        'category': 'ToDo',
+        'taskcategory': 2,
+        'urgency': 0,
+        'description': 'Text Aufgabe 3',
+        'user': ['Peter']
+    }, {
+        'id': 3,
+        'title': 'Aufgabe 4',
+        'date': '',
+        'category': 'Done',
+        'taskcategory': 3,
+        'urgency': 2,
+        'description': 'Text Aufgabe 4',
+        'user': ['Manuel', 'Stefan', 'Peter']
+    }]);
+    backend.setItem('tasks', JSON.stringify(tasks));
+
+    
 }
 
 function includeHTML() {

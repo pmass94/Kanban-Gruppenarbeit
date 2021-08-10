@@ -9,17 +9,21 @@ function createTask(){
     //let user = document.getElementById('  ?');
 
     let task = {
+        "id": tasks.length,
+        'category': 'ToDo',
         "title": title.value,
         "date": date.value,
-        "category": category.value,
-        "urgency": urgency.value, 
-        "description": description.value
+        "taskcategory": category.selectedIndex,
+        "urgency": urgency.selectedIndex, 
+        "description": description.value,
+        'user': ['Manuel']
+
     };
     tasks.push(task);
     console.log(tasks);
-    backend.setItem("tasks", tasks);
+    backend.setItem('tasks', JSON.stringify(tasks));
     title.value = ' ';
-    date.value = ' ';
+    /*date.value = ' ';*/
     description.value = ' ';
 }
 

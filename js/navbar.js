@@ -1,4 +1,4 @@
-function loadSyleNavbar() {
+function loadStyleNavbar() {
 
     let select = 'select-side';
     resetLinks(select);

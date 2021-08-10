@@ -1,8 +1,8 @@
-tasks = [{
+taskss = [{
     'id': 0,
     'title': 'Aufgabe 1',
     'date': '',
-    'category': 'ToDo',
+    'category': 2,
     'taskcategory': 0,
     'urgency': 2,
     'description': 'Text Aufgabe 1',
@@ -65,6 +65,8 @@ function updateHTML() {
             `;
         }
     }
+
+    
 }
 function startDragging(id) {
     currentDraggedElement = id;
@@ -74,6 +76,7 @@ function MoveTo(category) {
 
     tasks[currentDraggedElement]['category'] = category;
     updateHTML();
+    pushToBackend();
 }
 
 function allowDrop(ev) {
@@ -99,10 +102,16 @@ function changeTask() {
     changeJson();
     updateHTML();
     closeChange();
+    pushToBackend();
+    
+}
+
+function pushToBackend(){
+    backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 function deleteTask(){
-    delete tasks[idtask];
+    tasks[idtask] = '';
     changeTask();
 }
 
