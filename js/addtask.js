@@ -23,13 +23,13 @@ function createTask(){
     console.log(tasks);
     backend.setItem('tasks', JSON.stringify(tasks));
     title.value = ' ';
-    /*date.value = ' ';*/
+    date.value = null;
     description.value = ' ';
 }
 
 function cancel(){
     document.getElementById('title').value = ' ';
-    document.getElementById('date').value = ' ';
+    document.getElementById('date').value = null;
     document.getElementById('description').value = ' ';
 }
 

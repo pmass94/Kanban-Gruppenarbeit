@@ -1,41 +1,3 @@
-taskss = [{
-    'id': 0,
-    'title': 'Aufgabe 1',
-    'date': '',
-    'category': 2,
-    'taskcategory': 0,
-    'urgency': 2,
-    'description': 'Text Aufgabe 1',
-    'user': ['Manuel']
-}, {
-    'id': 1,
-    'title': 'Aufgabe 2',
-    'date': '',
-    'category': 'inProgress',
-    'taskcategory': 1,
-    'urgency': 1,
-    'description': 'Text Aufgabe 2',
-    'user': ['Stefan']
-}, {
-    'id': 2,
-    'title': 'Aufgabe 3',
-    'date': '',
-    'category': 'ToDo',
-    'taskcategory': 2,
-    'urgency': 0,
-    'description': 'Text Aufgabe 3',
-    'user': ['Peter']
-}, {
-    'id': 3,
-    'title': 'Aufgabe 4',
-    'date': '',
-    'category': 'Done',
-    'taskcategory': 3,
-    'urgency': 2,
-    'description': 'Text Aufgabe 4',
-    'user': ['Manuel', 'Stefan', 'Peter']
-}];
-
 boardfields = ['ToDo', 'inProgress', 'Testing', 'Done'];
 
 let Todo;
@@ -64,9 +26,7 @@ function updateHTML() {
             <div onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">${search[j]['title']}</div>
             `;
         }
-    }
-
-    
+    } 
 }
 function startDragging(id) {
     currentDraggedElement = id;
@@ -103,7 +63,6 @@ function changeTask() {
     updateHTML();
     closeChange();
     pushToBackend();
-    
 }
 
 function pushToBackend(){
@@ -121,7 +80,6 @@ function changeJson() {
     task['taskcategory'] = document.getElementById('board-categories').selectedIndex;
     task['urgency'] = document.getElementById('board-urgency').selectedIndex;
     task['description'] = document.getElementById('board-description').value;
-
 }
 
 function showTaskChange() {
