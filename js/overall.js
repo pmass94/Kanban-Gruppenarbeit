@@ -1,9 +1,12 @@
-function init() {
+setURL('http://gruppe-93.developerakademie.com/smallest_backend_ever');
 
+async function init() {
     includeHTML();
     window.setTimeout(loadSyleNavbar, 50);
     if (urlIs('board')) { updateHTML() };
-
+   
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
 }
 
 function includeHTML() {

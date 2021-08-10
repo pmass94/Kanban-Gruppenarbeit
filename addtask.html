@@ -15,11 +15,11 @@
     <link rel="icon" type="image/png" href="img/joinlogo.png">
     <link rel="stylesheet" href="css/addtask.css">
     <link rel="stylesheet" href="css/navbar.css">
-
+    <script src="js/mini_backend.js"></script>
     <script src="js/overall.js"></script>
     <script src="js/navbar.js"></script>
-    <script src="js/board.js"></script>
     <script src="js/addtask.js"></script>
+    
 </head>
 
 <body onload="init()">
@@ -34,12 +34,12 @@
         <div class="tasks">
             <span class="lefttask">
                 <h3 class="txt-blue">TITLE</h3>
-                <input type="text" id="title" placeholder="Task Title">
+                <input required type="text" id="title" placeholder="Task Title">
             </span>
     
             <span class="righttask">
                 <h3 class="txt-blue">DUE DATE</h3>
-                <input type="date" name="date" id="date">
+                <input required type="date" name="date" id="date">
             </span>    
         </div>
 
@@ -68,8 +68,8 @@
         
         <div class="tasks">
             <span class="lefttask">
-                <h3 class="txt-blue">Description</h3>
-                <input type="text" id="description" placeholder="Task Description">
+                <h3 class="txt-blue">DESCRIPTION</h3>
+                <input required type="text" id="description" placeholder="Task Description">
             </span>
             <span class="righttask">
                 <h3 class="txt-blue">ASSIGNED TO</h3>
