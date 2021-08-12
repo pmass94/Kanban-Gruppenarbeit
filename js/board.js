@@ -5,12 +5,10 @@ let inProgress;
 let Testing;
 let Done;
 let currentDraggedElement;
-
 let task;
 let idtask;
 
 function updateHTML() {
-
     for (let i = 0; i < boardfields.length; i++) {
         let search = boardfields[i];
         let id = 'board' + search;
@@ -19,15 +17,71 @@ function updateHTML() {
         search = tasks.filter(t => t['category'] == search);
 
         for (let j = 0; j < search.length; j++) {
+            idtask = search[j]['id'];
 
-            let idtask = search[j]['id'];
-
-            document.getElementById(id).innerHTML += `
-            <div onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">${search[j]['title']}</div>
-            `;
+            document.getElementById(id).innerHTML += renderBoardHtml(search, j);
+            /*loadDateBorder(search, j);*/
+            loadUrgencyColor(search, j);
+            CheckDate(search, j)
         }
-    } 
+    }
 }
+
+function renderBoardHtml(search, j) {
+    return `
+    <div id="board-task${idtask}" onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">
+        <div id="board-date${idtask}" class="board-task-date">${dateDE(search, j)}</div>
+        <div class="board-date-border">${search[j]['title']}</div>
+        <div class="board-responsible">Responsible:</div>
+        <div class="board-responsible-user">
+            <span>Manuel Bärlocher </span>
+            <span>Peter </span>
+            <span>Stefan </span>
+        </div>
+    </div>
+    `;
+}
+
+function loadUrgencyColor(search, j) {
+    let urgency = search[j]['urgency'];
+    let boardtask = document.getElementById(`board-task${idtask}`)
+
+    if (urgency == 0) {
+        boardtask.classList.add('board-urgency-high');
+    } else if (urgency == 1) {
+        boardtask.classList.add('board-urgency-middle');
+    } else if (urgency == 2) {
+        boardtask.classList.add('board-urgency-low');
+    }
+}
+
+
+function dateDE(search, j) {
+    let date = new Date(search[j]['date']);
+    if (date > 0) {
+        return date.toLocaleDateString("de-DE");
+    } else {
+        return '';
+    }
+}
+
+function CheckDate(search, j) {
+    let date = new Date(search[j]['date']);
+    let dateToday = new Date()
+    if (date <= dateToday) {
+        document.getElementById(`board-date${idtask}`).style = 'color: red; font-weight: bold';
+        console.log(date, dateToday)
+    }
+}
+
+function loadDateBorder(search, j) {
+    let date = new Date(search[j]['date']);
+    if (date >= 0) {
+        document.getElementById(`board-date${idtask}`).classList.add('board-date-border');
+    }
+
+}
+
 function startDragging(id) {
     currentDraggedElement = id;
 }
@@ -65,11 +119,11 @@ function changeTask() {
     pushToBackend();
 }
 
-function pushToBackend(){
+function pushToBackend() {
     backend.setItem('tasks', JSON.stringify(tasks));
 }
 
-function deleteTask(){
+function deleteTask() {
     tasks[idtask] = '';
     changeTask();
 }

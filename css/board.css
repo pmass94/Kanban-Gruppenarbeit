@@ -37,19 +37,80 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    /* make scrollbar transparent */
 }
 
 .board-task {
     background-color: white;
     width: 80%;
-    height: 24px;
     margin: 4px;
     text-align: center;
     font-weight: bold;
     border-radius: 4px;
-    padding: 4px;
     cursor: pointer;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 
+
+
+
+
+.board-urgency-high{
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: red;
+}
+
+.board-urgency-middle{
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: rgb(231, 231, 64);
+}
+
+.board-urgency-low{
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: darkgreen;
+}
+
+.board-task-date{
+    font-size: 11px;
+    text-align: left;
+    font-weight: normal;
+    
+    padding-right: 4px;
+    padding-left: 8px;
+}
+
+.board-date-border{
+    padding-bottom: 4px;
+    border-bottom: rgba(0,0,0, 0.5);
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+.board-responsible{
+    font-size: 14px;
+    text-align: left;
+    padding-right: 4px;
+    padding-left: 8px;
+  
+}
+
+.board-responsible-user{
+    font-size: 12px;
+    text-align: left;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    padding-right: 4px;
+    padding-left: 8px;
 }
 
 .board-taskchange-br{
@@ -71,6 +132,8 @@ body {
     transform: translateY(-50%);
     z-index: 1;
 }
+
+
 
 .d-none{
     display: none;
