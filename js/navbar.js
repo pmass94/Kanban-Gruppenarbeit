@@ -1,6 +1,13 @@
+let select;
+
 function loadStyleNavbar() {
 
-    let select = 'select-side';
+    if(window.innerWidth >= 1000){
+        select = 'select-side';
+    }else{
+        select = 'select-side-responsive';
+    }
+    
     resetLinks(select);
     if (urlIs('board')) {
         boardClasses().add(select);
@@ -47,3 +54,18 @@ function resetLinks(select) {
     impressumClasses().remove(select);
 
 }
+
+function showSidemenu() {
+    document.getElementById('navbarFilter').classList.add('filter');
+    document.getElementById('navbar-responsive').style = 'transform: translateX(0%);';
+  
+  
+  }
+  
+  function closeSidemenu() {
+    document.getElementById('navbarFilter').classList.remove('filter');
+    document.getElementById('navbar-responsive').style = 'transform: translateX(100%);';
+  
+  
+  
+  }

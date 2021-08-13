@@ -74,20 +74,18 @@ function CheckDate(search, j) {
     }
 }
 
-function loadDateBorder(search, j) {
+/*function loadDateBorder(search, j) {
     let date = new Date(search[j]['date']);
     if (date >= 0) {
         document.getElementById(`board-date${idtask}`).classList.add('board-date-border');
     }
-
-}
+}*/
 
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
 function MoveTo(category) {
-
     tasks[currentDraggedElement]['category'] = category;
     updateHTML();
     pushToBackend();

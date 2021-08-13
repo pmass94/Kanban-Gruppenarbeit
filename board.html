@@ -21,43 +21,51 @@
     <script src="js/overall.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/board.js"></script>
-    
+
 </head>
 
 <body onload="init()">
 
     <div w3-include-html="templates/navbar.html"></div>
+
     <div class="main-Container">
 
-        <div class="board-field">
-            <div class="board-title">
-                <p>TO DO</p>
+
+        <div class="board-fieldmain">
+            <div class="board-field">
+                <div class="board-title">
+                    <p>TO DO</p>
+                </div>
+                <div id="boardToDo" ondrop="MoveTo('ToDo')" ondragover="allowDrop(event)" class="board-draganddrop">
+                </div>
             </div>
-            <div id="boardToDo" ondrop="MoveTo('ToDo')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
-        </div>
-        <div class="board-field">
-            <div class="board-title">
-                <p>IN PROGRESS</p>
+            <div class="board-field">
+                <div class="board-title">
+                    <p>IN PROGRESS</p>
+                </div>
+                <div id="boardinProgress" ondrop="MoveTo('inProgress')" ondragover="allowDrop(event)"
+                    class="board-draganddrop"></div>
             </div>
-            <div id="boardinProgress" ondrop="MoveTo('inProgress')" ondragover="allowDrop(event)"
-                class="board-draganddrop"></div>
-        </div>
-        <div class="board-field">
-            <div class="board-title">
-                <p>TESTING</p>
+            <div class="board-field">
+                <div class="board-title">
+                    <p>TESTING</p>
+                </div>
+                <div id="boardTesting" ondrop="MoveTo('Testing')" ondragover="allowDrop(event)"
+                    class="board-draganddrop">
+                </div>
             </div>
-            <div id="boardTesting" ondrop="MoveTo('Testing')" ondragover="allowDrop(event)" class="board-draganddrop">
+            <div class="board-field">
+                <div class="board-title">
+                    <p>DONE</p>
+                </div>
+                <div id="boardDone" ondrop="MoveTo('Done')" ondragover="allowDrop(event)" class="board-draganddrop">
+                </div>
             </div>
-        </div>
-        <div class="board-field">
-            <div class="board-title">
-                <p>DONE</p>
-            </div>
-            <div id="boardDone" ondrop="MoveTo('Done')" ondragover="allowDrop(event)" class="board-draganddrop"></div>
         </div>
         <div onclick="closeChange()" id="board-taskchange-br" class="board-taskchange-br d-none"></div>
         <div id="board-taskchange" class="board-taskchange d-none">
-            <div class="">
+            <div>
+                <div class="board-task-back"><img onclick="closeChange()" src="img/go-back.png"></div>
                 <div class="tasks">
                     <span class="lefttask">
                         <h3 class="txt-blue">TITLE</h3>
@@ -107,7 +115,7 @@
                             <button id="addUser" onclick="addUser()">+</button>
                         </div>
 
-                        <div class="buttons">
+                        <div class="board-buttons">
                             <button id="btn-cancel" onclick="deleteTask()">DELETE</button>
                             <button id="btn-create" onclick="changeTask()">CHANGE TASK</button>
                         </div>
@@ -116,6 +124,8 @@
                 </div>
             </div>
         </div>
+        <div id="navbarFilter"></div>
+
 </body>
 
 </html>
