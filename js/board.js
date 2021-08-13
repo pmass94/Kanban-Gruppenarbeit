@@ -31,8 +31,8 @@ function renderBoardHtml(search, j) {
     return `
     <div id="board-task${idtask}" onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">
         <div id="board-date${idtask}" class="board-task-date">${dateDE(search, j)}</div>
-        <div class="board-date-border">${search[j]['title']}</div>
-        <div class="board-responsible">Responsible:</div>
+        <div class="board-date-border"><h3>${search[j]['title']}</h3></div>
+        <div class="board-responsible"><h4>Responsible:</h4></div>
         <div class="board-responsible-user">
             <span>Manuel Bärlocher </span>
             <span>Peter </span>

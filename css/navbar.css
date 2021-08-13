@@ -52,7 +52,8 @@
     flex-direction: column;
     margin-top: 40px;
     width: 100%;
-    transition: ease-in-out 250ms
+    text-align: right;
+    transition: ease-in-out 250ms;
 }
 
 .navbar-link-responsive a {
@@ -61,10 +62,10 @@
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 20px;
-    border-left: transparent;
-    border-left-style: solid;
-    border-left-width: 6px;
-    padding-left: 32px;
+    border-right: transparent;
+    border-right-style: solid;
+    border-right-width: 6px;
+    padding-right: 32px;
 }
 
 .navbar-link-responsive a:hover {
@@ -148,6 +149,21 @@
     align-items: center;
     align-content: center;
     z-index: 99;
+}
+
+.navbar-back{
+    display: flex;
+    justify-content: flex-end;
+    height: 28px;
+    margin: 8px;
+    width: 100%;
+    
+}
+
+.navbar-back img{
+    height: 24px;
+    cursor: pointer;
+    margin-right: 16px;
 }
 
 .filter {

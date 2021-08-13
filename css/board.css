@@ -31,7 +31,12 @@ body {
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     text-align: center;
-    font-size: 24px;
+    
+    margin-bottom: 24px;
+}
+
+.board-title h2{
+    margin: 0;
 }
 
 .board-title p {
@@ -105,7 +110,6 @@ body {
 }
 
 .board-responsible {
-    font-size: 14px;
     text-align: left;
     padding-right: 4px;
     padding-left: 8px;
@@ -119,6 +123,13 @@ body {
     flex-direction: column;
     padding-right: 4px;
     padding-left: 8px;
+}
+
+.board-task h3{
+    margin: 0;
+}
+.board-task h4{
+    margin: 0;
 }
 
 .board-taskchange-br {
@@ -154,11 +165,6 @@ body {
     display: flex;
 }
 
-.filter {
-    display: none;
-
-}
-
 .d-none {
     display: none;
 }
@@ -168,15 +174,35 @@ body {
         margin-left: 0;
         width: 100%;
         height: calc(100vh - 80px);
+        display: block;
+    }
+    .board-fieldmain {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .filter {
-        display: flex;
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        backdrop-filter: blur(5px);
-        background-color: rgba(0, 0, 0, 0.5);
+    .board-field{
+        width: 90%;
+        overflow: visible;
+        margin: 0;
+        margin-top: 24px;
+        margin-bottom: 24px;
         
+    }
+
+    .board-draganddrop{
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .board-task-date{
+        font-size: 1em;
+    }
+    .board-task h3{
+        font-size: 1.4em;
+    }
+
+    .board-responsible-user{
+        font-size: 1em;
     }
 }
