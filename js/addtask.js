@@ -11,14 +11,14 @@ let users = [{
     "name": "Mass",
     "vorname": "Peter",
     "email": "peter@joingruppe.com",
-    "logo": "../img/userimg/bussines-man.png'"
+    "logo": "../img/userimg/bussiness-man.png"
 },
 
 {
     "name": "Moldoveanu",
     "vorname": "Stefan",
     "email": "stefan@joingruppe.com",
-    "logo": "../img/userimg/manyoung.png'"
+    "logo": "../img/userimg/manyoung.png"
 }];
 
 let task = {
