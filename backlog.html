@@ -18,6 +18,7 @@
     <script src="js/mini_backend.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/backlog.js"></script>
+    <script src="js/board.js"></script>
     <script src="js/overall.js"></script>
     
     <title>Join - Backlog</title>
@@ -43,20 +44,20 @@
 
 
         <!-- TEST of Task-->
-        <div id="backlogContent">
+        <div id="backlogHTML">
             <div class="backlogRows">
                 <div class="backlogUser">
                     <img class="blUserImg" src="img/joinlogo.png">
                     <div class="blUserData">
                         <span class="wrap-W">user name</span>
-                        <a class="wrap-W" href="mailto:user email">user email</a>
+                        <a class="wrap-W" href="mailto:user email" id="bl-mail">user email</a>
                     </div>
                 </div>
                 <div class="blCategories">
-                    <span class="blCategory wrap-W">catecory value</span>
+                    <span class="blCategory wrap-W" id="board-categories">category value</span>
                 </div>
                 <div class="blDetails">
-                    <span class="wrap-W">description</span>
+                    <span class="wrap-W" id="board-description">description</span>
                 </div>
             </div>
         </div>
