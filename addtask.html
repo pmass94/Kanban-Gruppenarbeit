@@ -74,11 +74,22 @@
             <span class="righttask">
                 <h3 class="txt-blue">ASSIGNED TO</h3>
                 <div id="assignment">
-                    <div id="user1" class="userimg">
-                        <img src="img/userimg/man.png" alt="">
+                    <div >
+                        <img id="userimg" src="" alt="">
                     </div>
                     <button id="addUser" onclick="addUser()">+</button>
-
+                    <div id="assignUser" class="d-none">
+                        <button id="cancel-assignment" onclick="closeAssignment()">x</button>
+                        <div class="users">
+                            <span id="user1" onclick="selectUser(0)"></span>
+                        </div>
+                        <div class="users">
+                            <span id="user2" onclick="selectUser(1)"></span>
+                        </div>
+                        <div class="users">
+                            <span id="user3"onclick="selectUser(2)"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="buttons">
