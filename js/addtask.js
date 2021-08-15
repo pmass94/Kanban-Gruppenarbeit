@@ -58,7 +58,7 @@ function createTask() {
 
     //};
     tasks.push(task);
-    console.log(tasks);
+    updateBacklogHTML(task);
     backend.setItem('tasks', JSON.stringify(tasks));
     title.value = ' ';
     date.value = null;
