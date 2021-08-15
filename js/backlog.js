@@ -1,63 +1,38 @@
 function updateBacklogHTML() {
-    for (let i = 0; i < boardfields.length; i++) {
-        let search = boardfields[i];
-        let id = 'bl' + search;
 
-        document.getElementById(id).innerHTML = '';
-        search = tasks.filter(t => t['category'] == search);
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i]) {
 
-        for (let j = 0; j < search.length; j++) {
-            idtask = search[j]['id'];
-
-            document.getElementById(id).innerHTML += renderBacklogHtml(search, j);
-
-            loadUrgencyColor(search, j);
-
+            document.getElementById('backlog-content').innerHTML += renderBacklogHtml();
+            document.getElementById('blUserImg').src = tasks[i]['user']['logo'];
+            document.getElementById('blName').innerHTML = tasks[i]['user']['vorname']+''+tasks[i]['user']['name'];
         }
+
+
+
     }
 }
 
-function renderBacklogHtml(search, j) {
-    return `<div class="backlogRows ${idtask}">
-                <div class="backlogUser">
-                   <img class="blUserImg" src="${users['logo']}">
-                <div class="blUserData">
-                    <span class="wrap-W">${users['name', 'vorname']}</span>
-                    <a class="wrap-W" href="mailto:${users['email']}">${users['email']}</a>
-                </div>
+function renderBacklogHtml() {
+    return `        <div id="backlogHTML">
+    <div class="backlogRows">
+        <div class="backlogUser">
+            <img class="blUserImg" id="blUserImg" src="img/joinlogo.png">
+            <div class="blUserData">
+                <span class="wrap-W" id="blName">user name</span>
+                <a class="wrap-W" href="mailto:user email" id="bl-email">user email</a>
             </div>
-                <div class="blCategories">
-                    <span class="blCategory wrap-W">${task['taskcategory']}</span>
-                </div>
-                <div class="blDetails">
-                    <span class="wrap-W">${task['title']}</span>
-                </div>
-            </div>
+        </div>
+        <div class="blCategories">
+            <span class="blCategory wrap-W" id="bl-taskcategory">category value</span>
+        </div>
+        <div class="blDetails">
+            <span class="wrap-W" id="bl-title">title</span>
+        </div>
+    </div>
+</div>
             `;
 }
 
-function loadUrgencyColor(search, j) {
-    let urgency = search[j]['urgency'];
-    let boardtask = document.getElementById(`bl-task${idtask}`)
 
-    if (urgency == 0) {
-        boardtask.classList.add('bl-urgency-high');
-    } else if (urgency == 1) {
-        boardtask.classList.add('bl-urgency-middle');
-    } else if (urgency == 2) {
-        boardtask.classList.add('bl-urgency-low');
-    }
-}
 
-function dateDE(search, j) {
-    let date = new Date(search[j]['date']);
-    if (date > 0) {
-        return date.toLocaleDateString("de-DE");
-    } else {
-        return '';
-    }
-}
-
-function pushToBackend() {
-    backend.setItem('tasks', JSON.stringify(tasks));
-}
