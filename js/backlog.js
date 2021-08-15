@@ -18,7 +18,7 @@ function updateBacklogHTML() {
 }
 
 function renderBacklogHtml(search, j) {
-    return `<div class="backlogRows ${taskState}">
+    return `<div class="backlogRows ${idtask}">
                 <div class="backlogUser">
                    <img class="blUserImg" src="${users['logo']}">
                 <div class="blUserData">
