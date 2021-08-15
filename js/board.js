@@ -121,8 +121,8 @@ function pushToBackend() {
     backend.setItem('tasks', JSON.stringify(tasks));
 }
 
-function deleteTask() {
-    tasks[idtask] = '';
+function deleteTask(index) {
+    tasks.splice(index, 1);
     changeTask();
 }
 
