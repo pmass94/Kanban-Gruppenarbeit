@@ -123,6 +123,24 @@ body {
     
 }
 
+.bl-urgency-high {
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: red;
+}
+
+.bl-urgency-middle {
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: rgb(231, 231, 64);
+}
+
+.bl-urgency-low {
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: darkgreen;
+}
+
 
 
 
