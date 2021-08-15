@@ -48,8 +48,7 @@ function createTask() {
         "date": date.value,
         "taskcategory": category.selectedIndex,
         "urgency": urgency.selectedIndex,
-        "description": description.value,
-        'user': ['Manuel']
+        "description": description.value
 
     };
     tasks.push(task);
@@ -84,7 +83,12 @@ function closeAssignment() {
 }
 
 function selectUser(index) {
+    document.getElementById('userdata').innerHTML = `
+    <img id="userimg" src="" alt="">
+    <div id="username"></div>
+    `;
     document.getElementById('userimg').src = users[index]['logo'];
+    document.getElementById('username').innerHTML = users[index]['vorname']+' '+users[index]['name'];
     closeAssignment();
     task['user'] = users[index];
 }
