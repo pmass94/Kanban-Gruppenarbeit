@@ -1,7 +1,7 @@
 function updateHTML() {
     for (let i = 0; i < boardfields.length; i++) {
         let search = boardfields[i];
-        let id = 'board' + search;
+        let id = 'bl' + search;
 
         document.getElementById(id).innerHTML = '';
         search = tasks.filter(t => t['category'] == search);
@@ -20,10 +20,10 @@ function updateHTML() {
 function renderBacklogHtml(search, j) {
     return `<div class="backlogRows ${taskState}">
                 <div class="backlogUser">
-                   <img class="blUserImg" src="${user['img']}">
+                   <img class="blUserImg" src="${users['logo']}">
                 <div class="blUserData">
-                    <span class="wrap-W">${user['name']}</span>
-                    <a class="wrap-W" href="mailto:${user['email']}">${user['email']}</a>
+                    <span class="wrap-W">${users['name', 'vorname']}</span>
+                    <a class="wrap-W" href="mailto:${users['email']}">${users['email']}</a>
                 </div>
             </div>
                 <div class="blCategories">
@@ -56,4 +56,8 @@ function dateDE(search, j) {
     } else {
         return '';
     }
+}
+
+function pushToBackend() {
+    backend.setItem('tasks', JSON.stringify(tasks));
 }
