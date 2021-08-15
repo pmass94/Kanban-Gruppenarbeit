@@ -29,7 +29,7 @@ let task = {
     "taskcategory": " ",
     "urgency": " ",
     "description": " ",
-    'user': ['Manuel']
+    "user": 'user[0]'
 
 };
 
@@ -39,18 +39,24 @@ function createTask() {
     let category = document.getElementById('categories');
     let urgency = document.getElementById('urgency-type');
     let description = document.getElementById('description');
-    //let user = document.getElementById('  ?');
+    
+    task['id'] = tasks.length;
+    task['category'] = 'ToDo';
+    task['date']=date.value;
+    task['title']=title.value;
+    task['taskcategory']=category.selectedIndex;
+    task['urgency']=urgency.selectedIndex;
+    task['description']=description.value;
+    //task = {
+      //  "id": tasks.length,
+        //'category': 'ToDo',
+        //"title": title.value,
+        //"date": date.value,
+        //"taskcategory": category.selectedIndex,
+        //"urgency": urgency.selectedIndex,
+        //"description": description.value
 
-    task = {
-        "id": tasks.length,
-        'category': 'ToDo',
-        "title": title.value,
-        "date": date.value,
-        "taskcategory": category.selectedIndex,
-        "urgency": urgency.selectedIndex,
-        "description": description.value
-
-    };
+    //};
     tasks.push(task);
     console.log(tasks);
     backend.setItem('tasks', JSON.stringify(tasks));
@@ -83,12 +89,15 @@ function closeAssignment() {
 }
 
 function selectUser(index) {
+    let user = users[index];
+    task['user']=user;
     document.getElementById('userdata').innerHTML = `
     <img id="userimg" src="" alt="">
     <div id="username"></div>
     `;
+    
     document.getElementById('userimg').src = users[index]['logo'];
     document.getElementById('username').innerHTML = users[index]['vorname']+' '+users[index]['name'];
     closeAssignment();
-    task['user'] = users[index];
+   
 }

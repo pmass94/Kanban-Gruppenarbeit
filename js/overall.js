@@ -6,7 +6,7 @@ async function init() {
     includeHTML();
     window.setTimeout(loadStyleNavbar, 50);
     if (urlIs('board')) { updateHTML() };
-    if (urlIs('bl')) { updateBacklogHTML() };
+    if (urlIs('backlog')) { updateBacklogHTML() };
 }
     
 function includeHTML() {
