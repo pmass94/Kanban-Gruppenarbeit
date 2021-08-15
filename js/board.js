@@ -9,12 +9,16 @@ let task;
 let idtask;
 
 function updateHTML() {
+    changeID();
+    
     for (let i = 0; i < boardfields.length; i++) {
         let search = boardfields[i];
         let id = 'board' + search;
 
         document.getElementById(id).innerHTML = '';
         search = tasks.filter(t => t['category'] == search);
+
+        console.log(search)
 
         for (let j = 0; j < search.length; j++) {
             idtask = search[j]['id'];
@@ -23,6 +27,7 @@ function updateHTML() {
             /*loadDateBorder(search, j);*/
             loadUrgencyColor(search, j);
             CheckDate(search, j)
+            
         }
     }
 }
@@ -91,11 +96,14 @@ function MoveTo(category) {
     pushToBackend();
 }
 
+
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
 function openChange(id) {
+    taskid = id;
     showTaskChange();
     loadTask(id);
 }
@@ -121,9 +129,19 @@ function pushToBackend() {
     backend.setItem('tasks', JSON.stringify(tasks));
 }
 
-function deleteTask(index) {
-    tasks.splice(index, 1);
+function deleteTask() {
+    tasks.splice(idtask, 1);
+    
+    
     changeTask();
+}
+
+function changeID(){
+    for (let i = 0; i < tasks.length; i++) {
+        let id = tasks[i];
+
+        id['id'] = i;
+    }
 }
 
 function changeJson() {

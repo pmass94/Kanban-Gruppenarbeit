@@ -1,7 +1,7 @@
 let tasks = [];
 
 let users = [{
-    "name": "Bärlöcher",
+    "name": "Bärlocher",
     "vorname": "Manuel",
     "email": "manuel@joingruppe.com",
     "logo": "../img/userimg/man.png"
