@@ -1,4 +1,4 @@
-function updateHTML() {
+function updateBacklogHTML() {
     for (let i = 0; i < boardfields.length; i++) {
         let search = boardfields[i];
         let id = 'bl' + search;
