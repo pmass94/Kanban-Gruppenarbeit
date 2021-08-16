@@ -43,8 +43,8 @@ body {
 }
 
 .assigned {
-    width: 22%;
-    margin-left: 83px;
+    width: 35%;
+    margin-left: 80px;
 }
 
 .category {
@@ -91,7 +91,7 @@ body {
 
 .backlogUser {
     display: flex;
-    width: 30%;
+    width: 44%;
     align-items: center;
 }
 
@@ -123,6 +123,7 @@ body {
     display:flex;
     justify-content: center;
     width: 50%;
+
     
 }
 
