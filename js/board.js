@@ -38,10 +38,9 @@ function renderBoardHtml(search, j) {
         <div id="board-date${idtask}" class="board-task-date">${dateDE(search, j)}</div>
         <div class="board-date-border"><h3>${search[j]['title']}</h3></div>
         <div class="board-responsible"><h4>Responsible:</h4></div>
-        <div class="board-responsible-user">
-            <span>Manuel Bärlocher </span>
-            <span>Peter </span>
-            <span>Stefan </span>
+        <div id="board-responsible-user${idtask}"  class="board-responsible-user">
+            <img src="${tasks[idtask]["user"]["logo"]}"><span> ${tasks[idtask]["user"]["vorname"]} ${tasks[idtask]["user"]["name"]}</span>
+
         </div>
     </div>
     `;

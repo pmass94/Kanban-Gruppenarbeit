@@ -31,11 +31,10 @@ body {
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     text-align: center;
-    
     margin-bottom: 24px;
 }
 
-.board-title h2{
+.board-title h2 {
     margin: 0;
 }
 
@@ -120,17 +119,30 @@ body {
     text-align: left;
     font-weight: normal;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
     padding-right: 4px;
-    padding-left: 8px;
 }
 
-.board-task h3{
+.board-responsible-user img {
+    height: 32px;
+    width: 32px;
+}
+
+.board-responsible-user span {
+    margin-left: 4px;
+}
+
+.board-task h3 {
     margin: 0;
 }
-.board-task h4{
+
+.board-task h4 {
     margin: 0;
 }
+
+
 
 .board-taskchange-br {
     position: fixed;
@@ -180,29 +192,34 @@ body {
         flex-direction: column;
         align-items: center;
     }
-
-    .board-field{
+    .board-field {
         width: 90%;
         overflow: visible;
         margin: 0;
         margin-top: 24px;
         margin-bottom: 24px;
-        
     }
-
-    .board-draganddrop{
+    .board-draganddrop {
         padding-top: 24px;
         padding-bottom: 24px;
     }
-
-    .board-task-date{
+    .board-task-date {
         font-size: 1em;
     }
-    .board-task h3{
+    .board-task h3 {
         font-size: 1.4em;
     }
-
-    .board-responsible-user{
+    .board-responsible-user {
         font-size: 1em;
+    }
+    .board-taskchange-br {
+        top: 0;
+        margin: 0;
+    }
+
+    .board-taskchange{
+        width: 70%;
+        left: 10%;
+        right: 10%
     }
 }
