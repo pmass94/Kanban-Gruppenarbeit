@@ -24,7 +24,8 @@
         document.getElementById(`bl-taskcategory${i}`).innerHTML = tasks[i]['taskcategory'];
         document.getElementById(`bl-title${i}`).innerHTML = tasks[i]['title'];
 
-        loadUrgencyColor(tasks[i]['urgency'], i);      
+        loadUrgencyColor(tasks[i]['urgency'], i);  
+        checkTask(tasks[i]['taskcategory'], i); 
     }
 }
 
@@ -60,3 +61,16 @@ function loadUrgencyColor(urgency, index) {
         document.getElementById(`row${index}`).classList.add('bl-urgency-low');
     }
 }
+
+function checkTask(taskcategory, index) {
+    if (taskcategory == 0) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Management';
+    } else if (taskcategory== 1) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Human Resources';
+    } else if (taskcategory == 2) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Development';
+    } else if (taskcategory == 3) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Design';
+    }
+} 
+
