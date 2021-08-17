@@ -1,5 +1,28 @@
 setURL('http://gruppe-93.developerakademie.com/smallest_backend_ever');
 
+let users = [{
+    "name": "Bärlocher",
+    "vorname": "Manuel",
+    "email": "manuel@joingruppe.com",
+    "logo": "../img/userimg/man.png"
+},
+
+{
+    "name": "Mass",
+    "vorname": "Peter",
+    "email": "peter@joingruppe.com",
+    "logo": "../img/userimg/bussiness-man.png"
+},
+
+{
+    "name": "Moldoveanu",
+    "vorname": "Stefan",
+    "email": "stefan@joingruppe.com",
+    "logo": "../img/userimg/manyoung.png"
+}];
+
+
+
 async function init() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];

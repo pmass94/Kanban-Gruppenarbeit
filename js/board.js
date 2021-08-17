@@ -7,18 +7,18 @@ let Done;
 let currentDraggedElement;
 let task;
 let idtask;
+let iduser;
+let isUser = false;
 
 function updateHTML() {
     changeID();
-    
+
     for (let i = 0; i < boardfields.length; i++) {
         let search = boardfields[i];
         let id = 'board' + search;
 
         document.getElementById(id).innerHTML = '';
         search = tasks.filter(t => t['category'] == search);
-
-        console.log(search)
 
         for (let j = 0; j < search.length; j++) {
             idtask = search[j]['id'];
@@ -27,7 +27,7 @@ function updateHTML() {
             /*loadDateBorder(search, j);*/
             loadUrgencyColor(search, j);
             CheckDate(search, j)
-            
+
         }
     }
 }
@@ -74,7 +74,6 @@ function CheckDate(search, j) {
     let dateToday = new Date()
     if (date <= dateToday) {
         document.getElementById(`board-date${idtask}`).style = 'color: red; font-weight: bold';
-        console.log(date, dateToday)
     }
 }
 
@@ -105,6 +104,18 @@ function openChange(id) {
     taskid = id;
     showTaskChange();
     loadTask(id);
+    addAsignedto(id);
+    checkPositionAddUser()
+}
+
+function addAsignedto(id) {
+    let logo = tasks[id]['user']['logo'];
+    let firstname = tasks[id]['user']['vorname'];
+    let name = tasks[id]['user']['name'];
+
+    document.getElementById('responsibleUser').innerHTML = `
+    <span><img src=${logo} class="addUserImg" ></span> 
+    <span>${firstname} ${name} </span>`;
 }
 
 function loadTask(id) {
@@ -122,6 +133,7 @@ function changeTask() {
     updateHTML();
     closeChange();
     pushToBackend();
+    isUser = false;
 }
 
 function pushToBackend() {
@@ -129,13 +141,22 @@ function pushToBackend() {
 }
 
 function deleteTask() {
+    isUser = false;
     tasks.splice(idtask, 1);
-    
-    
     changeTask();
 }
 
-function changeID(){
+function loadUser() {
+
+    document.getElementById('user2').innerHTML = `
+    <span><img src=${users[1]['logo']} class="addUserImg" ></span> 
+    <span>${users[1]['vorname']}  ${users[1]['name']} </span>`;
+    document.getElementById('user3').innerHTML = `
+    <span><img src=${users[2]['logo']} class="addUserImg" ></span> 
+    <span>${users[2]['vorname']}  ${users[2]['name']}</span> `;
+}
+
+function changeID() {
     for (let i = 0; i < tasks.length; i++) {
         let id = tasks[i];
 
@@ -149,14 +170,85 @@ function changeJson() {
     task['taskcategory'] = document.getElementById('board-categories').selectedIndex;
     task['urgency'] = document.getElementById('board-urgency').selectedIndex;
     task['description'] = document.getElementById('board-description').value;
+    if (isUser == true) {
+        changeResponsibleUser();
+    }
 }
 
 function showTaskChange() {
-    document.getElementById('board-taskchange-br').classList.remove('d-none')
-    document.getElementById('board-taskchange').classList.remove('d-none')
+    document.getElementById('board-taskchange-br').classList.remove('d-none');
+    document.getElementById('board-taskchange').classList.remove('d-none');
 }
 
 function closeChange() {
-    document.getElementById('board-taskchange-br').classList.add('d-none')
-    document.getElementById('board-taskchange').classList.add('d-none')
+    document.getElementById('board-taskchange-br').classList.add('d-none');
+    document.getElementById('board-taskchange').classList.add('d-none');
+    closeChangeUser();
+}
+
+function changeUser() {
+    document.getElementById('board-ChangeUser').classList.remove('d-none');
+    loadChangeUsers();
+    checkPositionAddUser();
+
+
+}
+
+function closeChangeUser() {
+    document.getElementById('board-ChangeUser').classList.add('d-none');
+}
+
+function checkPositionAddUser() {
+    let left = document.getElementById('addUser').offsetLeft;
+    let top = document.getElementById('addUser').offsetTop;
+    let height = document.getElementById('board-ChangeUser').offsetHeight;
+
+    left = left - 280
+    top = top - height;
+
+    document.getElementById('board-ChangeUser').style.cssText = `top: ${top}px; left: ${left}px`;
+}
+
+function loadChangeUsers() {
+    let userfield = document.getElementById('board-ChangeUsers')
+    userfield.innerHTML = ''
+
+    for (let i = 0; i < users.length; i++) {
+
+        let logo = users[i]['logo'];
+        let firstname = users[i]['vorname'];
+        let name = users[i]['name'];
+
+        userfield.innerHTML += `
+         <div onclick="addUser(${i})" class="changeUser">
+         <img src="${logo}" class="addUserImg">
+         <span>${firstname} ${name} </span>
+        </div>`;
+    }
+}
+
+function addUser(i) {
+    let logo = users[i]['logo'];
+    let firstname = users[i]['vorname'];
+    let name = users[i]['name'];
+    iduser = i;
+
+    document.getElementById('responsibleUser').innerHTML = `
+    <span><img src=${logo} class="addUserImg" ></span> 
+    <span>${firstname} ${name} </span>`;
+
+    isUser = true;
+    closeChangeUser();
+}
+
+function changeResponsibleUser() {
+    let logouser = users[iduser]['logo'];
+    let firstnameuser = users[iduser]['vorname'];
+    let nameuser = users[iduser]['name'];
+    let namemail = users[iduser]['email'];
+
+    tasks[idtask]['user']['logo'] = logouser;
+    tasks[idtask]['user']['vorname'] = firstnameuser;
+    tasks[idtask]['user']['name'] = nameuser;
+    tasks[idtask]['user']['email'] = namemail;
 }

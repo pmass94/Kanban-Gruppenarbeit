@@ -177,6 +177,41 @@ body {
     display: flex;
 }
 
+#board-ChangeUser{
+    background-color: yellow;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    align-items: center;
+    border: 1px solid #dedee3;
+    border-radius: 10px;
+    background-color: #f4f3fb;
+    position: absolute;
+
+
+}
+
+.changeUser{
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.board-changeuser-back{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+    padding-top: 12px;
+}
+
+
+.board-changeuser-back img{
+    height: 24px!important;
+    width: 24px!important;
+    cursor: pointer;
+}
+
 .d-none {
     display: none;
 }

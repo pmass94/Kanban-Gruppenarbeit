@@ -104,15 +104,21 @@
                 <div class="tasks">
                     <span class="lefttask">
                         <h3 class="txt-blue">Description</h3>
-                        <input id="board-description" type="text" id="description" cols="40" rows="5" placeholder="Task Description">
+                        <textarea required type="text" id="board-description" placeholder="Task Description"></textarea>
                     </span>
                     <span class="righttask">
                         <h3 class="txt-blue">ASSIGNED TO</h3>
                         <div id="assignment">
-                            <div id="user1" class="userimg">
-                                <img src="img/userimg/man.png" alt="">
+                            <div id="responsibleUser"></div>
+
+
+                            <button id="addUser" onclick="changeUser()">+</button>
+                            <div id="board-ChangeUser" class="board-ChangeUser d-none">
+                                <div class="board-changeuser-back"><img onclick="closeChangeUser()"
+                                        src="img/go-back.png">
+                                </div>
+                                <div id="board-ChangeUsers"></div>
                             </div>
-                            <button id="addUser" onclick="addUser()">+</button>
                         </div>
 
                         <div class="board-buttons">
