@@ -13,8 +13,8 @@
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="img/joinlogo.png">
-    <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/help.css">
 
     <script src="js/mini_backend.js"></script>
     <script src="js/overall.js"></script>
@@ -25,10 +25,42 @@
 <body onload="init()">
 
     <div w3-include-html="templates/navbar.html"></div>
+
     <div class="main-Container">
         <h1>Help Page</h1>
     </div>
+    <div class="help-content">
+        <div class="steps">
+            <h2>First you create a task</h2>
+            <div class="step-description">
+                Fill in all requested inputfields and assign the users, who will work on this task.
+            </div>
+            <img src="../img/AddTask.PNG" alt="task" width="100%">
+        </div>
+        <div class="steps">
+            <h2>All tasks will be diplayed on the board</h2>
+            <div class="step-description">
+                Every task can shifted to the next processing status, by using Drag & Drop.
+            </div>
+            <img src="../img/DashBoard.png" alt="task" width="100%">
+        </div>
+        <div class="steps">
+            <div class="step-description">
+                Click on the task, to see further information, to change or to delete it.
+            </div>
+            <img src="../img/ChangeBoard.png" alt="task" width="100%">
+        </div>
+        <div class="steps">
+            <h2>Backlog</h2>
+            <div class="step-description">
+                The backlog keeps track of the tasks and every single person, which is assigned to a specific task.
+            </div>
+            <img src="../img/Backlog_new.png" alt="task" width="100%">
+        </div>
+    </div>
+
     <div onclick="closeSidemenu()" id="navbarFilter"></div>
+    </div>
 
 
 

@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.help-content {
+    width: 80%;
+    padding: 50px 0;
+    margin-left: 170px;
+}
+
+.main-Container {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: #1f1fa0;
+}
+
+.steps {
+    margin-top: 60px;
+}
+
+.steps img {
+    margin-top: 25px;
+}
+
+.step-description {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 45px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1000px) {
+    .help-content {
+        width: 90%;
+        margin-left: 20px;
+    }
+}
