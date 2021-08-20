@@ -13,9 +13,9 @@ function loadStyleNavbar() {
     } else if (urlIs('addtask')) {
         addtaskClasses().add(select);
         addtaskClassesResp().add(selectResponse);
-    /*} else if (urlIs('help')) {
+    } else if (urlIs('help')) {
         helpClasses().add(select);
-        helpClassesResp().add(selectResponse);*/
+        helpClassesResp().add(selectResponse);
     } else if (urlIs('impressum')) {
         impressumClasses().add(select);
         impressumClassesResp().add(selectResponse);
@@ -70,7 +70,7 @@ function resetLinks(select) {
     boardClasses().remove(select);
     backlogClasses().remove(select);
     addtaskClasses().remove(select);
-    /*helpClasses().remove(select);*/
+    helpClasses().remove(select);
     impressumClasses().remove(select);
 
 }
@@ -79,7 +79,7 @@ function resetLinksResp(selectResponse){
     boardClassesResp().remove(selectResponse);
     backlogClassesResp().remove(selectResponse);
     addtaskClassesResp().remove(selectResponse);
-    /*helpClassesResp().remove(selectResponse);*/
+    helpClassesResp().remove(selectResponse);
     impressumClassesResp().remove(selectResponse);
 }
 

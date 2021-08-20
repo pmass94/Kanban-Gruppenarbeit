@@ -4,21 +4,21 @@ let users = [{
     "name": "Bärlocher",
     "vorname": "Manuel",
     "email": "manuel@joingruppe.com",
-    "logo": "../img/userimg/man.png"
+    "logo": "./img/userimg/man.png"
 },
 
 {
     "name": "Mass",
     "vorname": "Peter",
     "email": "peter@joingruppe.com",
-    "logo": "../img/userimg/bussiness-man.png"
+    "logo": "./img/userimg/bussiness-man.png"
 },
 
 {
     "name": "Moldoveanu",
     "vorname": "Stefan",
     "email": "stefan@joingruppe.com",
-    "logo": "../img/userimg/manyoung.png"
+    "logo": "./img/userimg/manyoung.png"
 }];
 
 
