@@ -12,7 +12,7 @@ let task = {
 
 };
 
-function createTask() {
+async function  createTask() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let category = document.getElementById('categories');
@@ -38,11 +38,18 @@ function createTask() {
     //};
     tasks.push(task);
     console.log(tasks);
-    backend.setItem('tasks', JSON.stringify(tasks));
+   await backend.setItem('tasks', JSON.stringify(tasks));
     title.value = ' ';
     date.value = null;
     description.value = ' ';
-    window.location.href = "./board.html";
+    /*window.location.href = "./board.html";*/
+    await openBoard();
+}
+
+async function openBoard(){
+    
+        window.location.href = './board.html';
+    
 }
 
 function cancel() {
