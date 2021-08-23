@@ -42,6 +42,7 @@ function createTask() {
     title.value = ' ';
     date.value = null;
     description.value = ' ';
+    window.location.href = "./board.html";
 }
 
 function cancel() {
