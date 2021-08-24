@@ -1,4 +1,32 @@
-boardfields = ['ToDo', 'inProgress', 'Testing', 'Done'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>boardfields = ['ToDo', 'inProgress', 'Testing', 'Done'];
 
 let inProgress;
 let currentDraggedElement;
@@ -15,14 +43,14 @@ let isUser = false;
 function updateHTML() {
     changeID();
 
-    for (let i = 0; i < boardfields.length; i++) {
+    for (let i = 0; i &lt; boardfields.length; i++) {
         let search = boardfields[i];
         let id = 'board' + search;
 
         document.getElementById(id).innerHTML = '';
         search = tasks.filter(t => t['category'] == search);
 
-        for (let j = 0; j < search.length; j++) {
+        for (let j = 0; j &lt; search.length; j++) {
             idtask = search[j]['id'];
 
             document.getElementById(id).innerHTML += renderBoardHtml(search, j);
@@ -41,15 +69,15 @@ function updateHTML() {
  */
 function renderBoardHtml(search, j) {
     return `
-    <div id="board-task${idtask}" onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">
-        <div id="board-date${idtask}" class="board-task-date">${changeDatetoDE(search, j)}</div>
-        <div class="board-date-border"><h3>${search[j]['title']}</h3></div>
-        <div class="board-responsible"><h4>Responsible:</h4></div>
-        <div id="board-responsible-user${idtask}"  class="board-responsible-user">
-            <img src="${tasks[idtask]["user"]["logo"]}"><span> ${tasks[idtask]["user"]["vorname"]} ${tasks[idtask]["user"]["name"]}</span>
+    &lt;div id="board-task${idtask}" onclick="openChange(${idtask})" ondragstart="startDragging(${idtask})" draggable="true" class="board-task">
+        &lt;div id="board-date${idtask}" class="board-task-date">${changeDatetoDE(search, j)}&lt;/div>
+        &lt;div class="board-date-border">&lt;h3>${search[j]['title']}&lt;/h3>&lt;/div>
+        &lt;div class="board-responsible">&lt;h4>Responsible:&lt;/h4>&lt;/div>
+        &lt;div id="board-responsible-user${idtask}"  class="board-responsible-user">
+            &lt;img src="${tasks[idtask]["user"]["logo"]}">&lt;span> ${tasks[idtask]["user"]["vorname"]} ${tasks[idtask]["user"]["name"]}&lt;/span>
 
-        </div>
-    </div>
+        &lt;/div>
+    &lt;/div>
     `;
 }
 
@@ -96,7 +124,7 @@ function changeDatetoDE(search, j) {
 function CheckDate(search, j) {
     let date = new Date(search[j]['date']);
     let dateToday = new Date()
-    if (date <= dateToday) {
+    if (date &lt;= dateToday) {
         document.getElementById(`board-date${idtask}`).style = 'color: red; font-weight: bold';
     }
 }
@@ -155,8 +183,8 @@ function addAsignedto(id) {
     let name = tasks[id]['user']['name'];
 
     document.getElementById('responsibleUser').innerHTML = `
-    <span><img src=${logo} class="addUserImg" ></span> 
-    <span>${firstname} ${name} </span>`;
+    &lt;span>&lt;img src=${logo} class="addUserImg" >&lt;/span> 
+    &lt;span>${firstname} ${name} &lt;/span>`;
 }
 
 /**
@@ -215,11 +243,11 @@ function deleteTask() {
 function loadUser() {
 
     document.getElementById('user2').innerHTML = `
-    <span><img src=${users[1]['logo']} class="addUserImg" ></span> 
-    <span>${users[1]['vorname']}  ${users[1]['name']} </span>`;
+    &lt;span>&lt;img src=${users[1]['logo']} class="addUserImg" >&lt;/span> 
+    &lt;span>${users[1]['vorname']}  ${users[1]['name']} &lt;/span>`;
     document.getElementById('user3').innerHTML = `
-    <span><img src=${users[2]['logo']} class="addUserImg" ></span> 
-    <span>${users[2]['vorname']}  ${users[2]['name']}</span> `;
+    &lt;span>&lt;img src=${users[2]['logo']} class="addUserImg" >&lt;/span> 
+    &lt;span>${users[2]['vorname']}  ${users[2]['name']}&lt;/span> `;
 }
 
 /**
@@ -228,7 +256,7 @@ function loadUser() {
  * 
  */
 function changeID() {
-    for (let i = 0; i < tasks.length; i++) {
+    for (let i = 0; i &lt; tasks.length; i++) {
         let id = tasks[i];
 
         id['id'] = i;
@@ -319,17 +347,17 @@ function loadChangeUsers() {
     let userfield = document.getElementById('board-ChangeUsers')
     userfield.innerHTML = ''
 
-    for (let i = 0; i < users.length; i++) {
+    for (let i = 0; i &lt; users.length; i++) {
 
         let logo = users[i]['logo'];
         let firstname = users[i]['vorname'];
         let name = users[i]['name'];
 
         userfield.innerHTML += `
-         <div onclick="addUser(${i})" class="changeUser">
-         <img src="${logo}" class="addUserImg">
-         <span>${firstname} ${name} </span>
-        </div>`;
+         &lt;div onclick="addUser(${i})" class="changeUser">
+         &lt;img src="${logo}" class="addUserImg">
+         &lt;span>${firstname} ${name} &lt;/span>
+        &lt;/div>`;
     }
 }
 
@@ -345,8 +373,8 @@ function addUser(i) {
     iduser = i;
 
     document.getElementById('responsibleUser').innerHTML = `
-    <span><img src=${logo} class="addUserImg" ></span> 
-    <span>${firstname} ${name} </span>`;
+    &lt;span>&lt;img src=${logo} class="addUserImg" >&lt;/span> 
+    &lt;span>${firstname} ${name} &lt;/span>`;
 
     isUser = true;
     closeChangeUser();
@@ -368,3 +396,26 @@ function changeResponsibleUser() {
     tasks[idtask]['user']['name'] = nameuser;
     tasks[idtask]['user']['email'] = namemail;
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addAsignedto">addAsignedto</a></li><li><a href="global.html#addtaskClasses">addtaskClasses</a></li><li><a href="global.html#addtaskClassesResp">addtaskClassesResp</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backlogClasses">backlogClasses</a></li><li><a href="global.html#backlogClassesResp">backlogClassesResp</a></li><li><a href="global.html#boardClasses">boardClasses</a></li><li><a href="global.html#boardClassesResp">boardClassesResp</a></li><li><a href="global.html#changeDatetoDE">changeDatetoDE</a></li><li><a href="global.html#changeID">changeID</a></li><li><a href="global.html#changeJson">changeJson</a></li><li><a href="global.html#changeResponsibleUser">changeResponsibleUser</a></li><li><a href="global.html#changeTask">changeTask</a></li><li><a href="global.html#changeUser">changeUser</a></li><li><a href="global.html#CheckDate">CheckDate</a></li><li><a href="global.html#checkPositionAddUser">checkPositionAddUser</a></li><li><a href="global.html#closeChange">closeChange</a></li><li><a href="global.html#closeChangeUser">closeChangeUser</a></li><li><a href="global.html#closeSidemenu">closeSidemenu</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#helpClasses">helpClasses</a></li><li><a href="global.html#helpClassesResp">helpClassesResp</a></li><li><a href="global.html#impressumClasses">impressumClasses</a></li><li><a href="global.html#impressumClassesResp">impressumClassesResp</a></li><li><a href="global.html#loadChangeUsers">loadChangeUsers</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#loadStyleNavbar">loadStyleNavbar</a></li><li><a href="global.html#loadTask">loadTask</a></li><li><a href="global.html#loadUrgencyColor">loadUrgencyColor</a></li><li><a href="global.html#loadUser">loadUser</a></li><li><a href="global.html#MoveTo">MoveTo</a></li><li><a href="global.html#openChange">openChange</a></li><li><a href="global.html#pushToBackend">pushToBackend</a></li><li><a href="global.html#renderBoardHtml">renderBoardHtml</a></li><li><a href="global.html#resetLinks">resetLinks</a></li><li><a href="global.html#resetLinksResp">resetLinksResp</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#showSidemenu">showSidemenu</a></li><li><a href="global.html#showTaskChange">showTaskChange</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#updateHTML">updateHTML</a></li><li><a href="global.html#urlIs">urlIs</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Aug 24 2021 18:00:45 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

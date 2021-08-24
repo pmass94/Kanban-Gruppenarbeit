@@ -12,44 +12,43 @@ let task = {
 
 };
 
-async function  createTask() {
+async function createTask() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let category = document.getElementById('categories');
     let urgency = document.getElementById('urgency-type');
     let description = document.getElementById('description');
-    
+
     task['id'] = tasks.length;
     task['category'] = 'ToDo';
-    task['date']=date.value;
-    task['title']=title.value;
-    task['taskcategory']=category.selectedIndex;
-    task['urgency']=urgency.selectedIndex;
-    task['description']=description.value;
+    task['date'] = date.value;
+    task['title'] = title.value;
+    task['taskcategory'] = category.selectedIndex;
+    task['urgency'] = urgency.selectedIndex;
+    task['description'] = description.value;
     //task = {
-      //  "id": tasks.length,
-        //'category': 'ToDo',
-        //"title": title.value,
-        //"date": date.value,
-        //"taskcategory": category.selectedIndex,
-        //"urgency": urgency.selectedIndex,
-        //"description": description.value
+    //  "id": tasks.length,
+    //'category': 'ToDo',
+    //"title": title.value,
+    //"date": date.value,
+    //"taskcategory": category.selectedIndex,
+    //"urgency": urgency.selectedIndex,
+    //"description": description.value
 
     //};
     tasks.push(task);
     console.log(tasks);
-   await backend.setItem('tasks', JSON.stringify(tasks));
+    await backend.setItem('tasks', JSON.stringify(tasks));
     title.value = ' ';
     date.value = null;
     description.value = ' ';
-    /*window.location.href = "./board.html";*/
-    await openBoard();
+    openBoard();
 }
 
-async function openBoard(){
-    
-        window.location.href = './board.html';
-    
+async function openBoard() {
+
+    window.location.href = './board.html';
+
 }
 
 function cancel() {
@@ -77,14 +76,14 @@ function closeAssignment() {
 
 function selectUser(index) {
     let user = users[index];
-    task['user']=user;
+    task['user'] = user;
     document.getElementById('userdata').innerHTML = `
     <img id="userimg" src="" alt="">
     <div id="username"></div>
     `;
-    
+
     document.getElementById('userimg').src = users[index]['logo'];
-    document.getElementById('username').innerHTML = users[index]['vorname']+' '+users[index]['name'];
+    document.getElementById('username').innerHTML = users[index]['vorname'] + ' ' + users[index]['name'];
     closeAssignment();
-   
+
 }

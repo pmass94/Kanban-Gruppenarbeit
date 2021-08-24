@@ -3,7 +3,7 @@ setURL('http://gruppe-93.developerakademie.com/smallest_backend_ever');
 let users = [{
     "name": "Bärlocher",
     "vorname": "Manuel",
-    "email": "manuel@joingruppe.com",
+    "email": "manuel@bluewin.ch",
     "logo": "./img/userimg/man.png"
 },
 
