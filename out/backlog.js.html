@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: backlog.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,101 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: backlog.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This function is update and Check the HTML Side
+ * 
+ * @param {array} - onload function / load tasks to the backlog containers
+ */
+
+function updateBacklogHTML() {
+    document.getElementById('backlogHTML').innerHTML = ' ';
+    for (let i = 0; i &lt; tasks.length; i++) {
+        document.getElementById('backlogHTML').innerHTML += showBacklog(i);
+
+        document.getElementById(`blUserImg${i}`).src = tasks[i]['user']['logo'];
+        document.getElementById(`userName${i}`).innerHTML = tasks[i]['user']['vorname'] + ' ' + tasks[i]['user']['name'];
+        document.getElementById(`bl-email${i}`).innerHTML = tasks[i]['user']['email'];
+        document.getElementById(`bl-taskcategory${i}`).innerHTML = tasks[i]['taskcategory'];
+        document.getElementById(`bl-title${i}`).innerHTML = tasks[i]['title'];
+
+        loadUrgencyColor(tasks[i]['urgency'], i);
+        checkTask(tasks[i]['taskcategory'], i);
+    }
+}
 
 
-    <h3> </h3>
+/**
+ * This function is used to give the HTML Code Return
+ * 
+ * @param {number} i - This is the Number from the Field
+ */
+function showBacklog(i) {
+    return `&lt;div class="backlogRows" id="row${i}">
+    &lt;div class="backlogUser">
+        &lt;img class="blUserImg" id="blUserImg${i}" src="">
+        &lt;div class="blUserData">
+            &lt;span class="wrap-W" id="userName${i}">user name&lt;/span>
+            &lt;a class="wrap-W" href="mailto:user email" id="bl-email${i}">user email&lt;/a>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="blCategories">
+        &lt;span class="blCategory wrap-W" id="bl-taskcategory${i}">category value&lt;/span>
+    &lt;/div>
+    &lt;div class="blDetails">
+        &lt;span class="wrap-W" id="bl-title${i}">title&lt;/span>
+    &lt;/div>
+&lt;/div>`;
+}
 
+/**
+ * This function is used for the classification of the importance.
+ * 
+ * @param {number} index - This is the Number from the Task
+ * @param {string} urgency - This is the task for the Input
+ */
 
+function loadUrgencyColor(urgency, index) {
 
+    if (urgency == 0) {
+        document.getElementById(`row${index}`).classList.add('bl-urgency-high');
+    } else if (urgency == 1) {
+        document.getElementById(`row${index}`).classList.add('bl-urgency-middle');
+    } else if (urgency == 2) {
+        document.getElementById(`row${index}`).classList.add('bl-urgency-low');
+    }
+}
 
+/**
+ * This function is used to load the stats from the Task Category.
+ * 
+ * @param {number} index - This is the Number from the Task
+ * @param {string} taskcategory - This is the task for the input
+ */
 
+function checkTask(taskcategory, index) {
+    if (taskcategory == 0) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Management';
+    } else if (taskcategory == 1) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Human Resources';
+    } else if (taskcategory == 2) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Development';
+    } else if (taskcategory == 3) {
+        document.getElementById(`bl-taskcategory${index}`).innerHTML = 'Design';
+    }
+}
 
-
-
-
-
-    
-
-
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 
