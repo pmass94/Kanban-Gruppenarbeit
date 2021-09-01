@@ -21,6 +21,9 @@ function loadStyleNavbar() {
     } else if (urlIs('help')) {
         helpClasses().add(select);
         helpClassesResp().add(selectResponse);
+    } else if (urlIs('datenschutz')) {
+        datenschutzClasses().add(select);
+        datenschutzClassesResp().add(selectResponse);
     } else if (urlIs('impressum')) {
         impressumClasses().add(select);
         impressumClassesResp().add(selectResponse);
@@ -109,6 +112,24 @@ function helpClassesResp() {
 }
 
 /**
+ * This function is used to address ID Datenschutz
+ * 
+ * 
+ */
+function datenschutzClasses() {
+    return document.getElementById('datenschutz').classList;
+}
+
+/**
+ * This function is used to address ID Datenschutz Responsive
+ * 
+ * 
+ */
+function datenschutzClassesResp() {
+    return document.getElementById('datenschutz-responsive').classList;
+}
+
+/**
  * This function is used to address ID Impressum
  * 
  * 
@@ -136,7 +157,9 @@ function resetLinks(select) {
     backlogClasses().remove(select);
     addtaskClasses().remove(select);
     helpClasses().remove(select);
+    datenschutzClasses().remove(select);
     impressumClasses().remove(select);
+
 }
 
 /**
@@ -149,6 +172,7 @@ function resetLinksResp(selectResponse) {
     backlogClassesResp().remove(selectResponse);
     addtaskClassesResp().remove(selectResponse);
     helpClassesResp().remove(selectResponse);
+    datenschutzClassesResp().remove(selectResponse);
     impressumClassesResp().remove(selectResponse);
 }
 
